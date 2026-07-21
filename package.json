@@ -1,0 +1,27 @@
+{
+  "name": "flowers",
+  "version": "1.0.0",
+  "description": "flower game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluffyy-dev/flowers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fluffyy-dev/flowers/issues"
+  },
+  "homepage": "https://github.com/fluffyy-dev/flowers#readme",
+  "dependencies": {
+    "pixi.js": "^8.19.0"
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
+  }
+}
