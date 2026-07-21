@@ -51,7 +51,7 @@ import { Application, Graphics } from "pixi.js";
 
     // app.stage.addChild(petal1);
 
-    const flowerColorList = ['0x2b36ff', '0xff2b2b', '0xff2bc3'];
+    const flowerColorList = ['0x2b36ff', '0xff2b2b', '0xff2bc3', '0x952bff', '0x41ff2b', '0x24e0ee', '0xf1ff2b', '0xffa41b'];
 
     const flowerAddEvery = 25
 
