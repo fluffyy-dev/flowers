@@ -16,28 +16,31 @@ import { Application, Graphics } from "pixi.js";
     // first flower
     const flowerY = 300;
     const flowerX = 300;
-    const petalWidth = 30;
+    const petalWidth = 35;
     const petalHeight = 50;
     const carpelRad = 38;
-    const petals = 8;
+    const petals = 6;
+
+    const petalColor = 0xff2b2b;
+    const carpelColor = 0xffea00;
 
     const TurnDegrees = (2 * Math.PI) / petals;
 
-    for (let i = 0; i < petals; i++) {
-        const petal = new Graphics()
-        .ellipse(0, 0, petalWidth, petalHeight)
-        .fill({color: 0xffea00})
-        app.stage.addChild(petal);
-        petal.x = flowerX;
-        petal.y = flowerY;
-        petal.pivot.set(0, petalHeight);
-        petal.rotation = TurnDegrees * i;
-    }
+    // for (let i = 0; i < petals; i++) {
+    //     const petal = new Graphics()
+    //     .ellipse(0, 0, petalWidth, petalHeight)
+    //     .fill({color: petalColor})
+    //     app.stage.addChild(petal);
+    //     petal.x = flowerX;
+    //     petal.y = flowerY;
+    //     petal.pivot.set(0, petalHeight);
+    //     petal.rotation = TurnDegrees * i;
+    // }
 
-    const carpel = new Graphics()
-    .circle(300, 300, carpelRad)
-    .fill({color: 0x381607})
-    app.stage.addChild(carpel);
+    // const carpel = new Graphics()
+    // .circle(300, 300, carpelRad)
+    // .fill({color: carpelColor})
+    // app.stage.addChild(carpel);
 
     // center of flower
     // const pete = new Graphics()
@@ -47,6 +50,39 @@ import { Application, Graphics } from "pixi.js";
     // pete.pivot.set(3, 3);
 
     // app.stage.addChild(petal1);
+
+    const flowerColorList = ['0x2b36ff', '0xff2b2b', '0xff2bc3'];
+
+    const flowerAddEvery = 25
+
+    var flrNum = 1
+    app.ticker.add(() => {
+    if (flrNum % flowerAddEvery == 0) {
+        const flowerX = Math.random() *  app.screen.width;
+        const flowerY = Math.random() *  app.screen.height;
+        const clr = flowerColorList[Math.floor(Math.random() * flowerColorList.length)]
+
+        for (let i = 0; i < petals; i++) {    
+            const NewPetal = new Graphics()
+            .ellipse(0, 0, petalWidth, petalHeight)
+            .fill({color: clr})
+            app.stage.addChild(NewPetal);
+            NewPetal.x = flowerX;
+            NewPetal.y = flowerY;
+            NewPetal.pivot.set(0, petalHeight);
+            NewPetal.rotation = TurnDegrees * i;
+        }
+
+        const carpel = new Graphics()
+        .circle(flowerX, flowerY, carpelRad)
+        .fill({color: carpelColor})
+        app.stage.addChild(carpel);
+    } else if (flrNum > 1450) {
+        for (var i = app.stage.children.length - 1; i >= 0; i--) {app.stage.removeChild(app.stage.children[i]);};
+        flrNum = 1
+    }
+    flrNum += 1
+    });
 
     document.body.appendChild(app.canvas)
 })();
