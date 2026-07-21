@@ -1,5 +1,4 @@
-import * as PIXI from "pixi.js";
-import { Application, Graphics } from "pixi.js";
+import { Application, Graphics } from "https://cdn.jsdelivr.net/npm/pixi.js@8/dist/pixi.min.mjs";
 
 (async () => {
 
